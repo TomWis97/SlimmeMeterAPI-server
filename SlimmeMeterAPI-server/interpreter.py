@@ -1,5 +1,3 @@
-data = "1-0:1.8.2(004151.898*kWh)"
-
 def readData(data):
 	"""This function will convert a string to a dictionary.
 	The dictionary will have the following keys:
@@ -39,4 +37,13 @@ def readData(data):
 			continue
 		# TODO: Map names to IDs.
 	return {'id': dataId, 'value': dataValue}
-print(readData(data))
+
+def readList(dataList):
+	"""Input a list of lines, strip the unnecessary stuff and
+	send to readData. Return a list of all the processed values."""
+	blockedChars = ('/', '!')
+	totalList = []
+	for line in dataList:
+		if not ((line[0] in blockedChars) and (len(line) > 0)): 
+			totalList.append(readData(line))
+	return totalList
