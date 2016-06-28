@@ -1,3 +1,5 @@
+import re
+
 def readData(data):
 	"""This function will convert a string to a dictionary.
 	The dictionary will have the following keys:
@@ -36,7 +38,8 @@ def readData(data):
 			dataId = dataId + char
 			continue
 		# TODO: Map names to IDs.
-	return {'id': dataId, 'value': dataValue}
+	dataName = getName(dataId)
+	return {'id': dataId, 'value': dataValue, 'name': getName(dataId)}
 
 def readList(dataList):
 	"""Input a list of lines, strip the unnecessary stuff and
@@ -44,6 +47,19 @@ def readList(dataList):
 	blockedChars = ('/', '!')
 	totalList = []
 	for line in dataList:
-		if not ((line[0] in blockedChars) and (len(line) > 0)): 
+		if not ((len(line) == 0) or (line[0] in blockedChars)): 
 			totalList.append(readData(line))
 	return totalList
+
+def getName(id):
+	"""Input an ID and return a name. If no name is present, return ID."""
+	global nameIdMaps
+	return nameIdMaps[id]
+	
+# TODO Put this in an __init__?
+# Import the map file and put it in a dictionary.
+mapFile = open('id_name_map.txt', 'r')
+nameIdMaps = {}
+for line in mapFile:
+	splitLine = line.split('=')
+	nameIdMaps[splitLine[0].strip()] = splitLine[1].strip()
