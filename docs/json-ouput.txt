@@ -1,0 +1,167 @@
+[
+    {
+        "id": "1-3:0.2.8",
+        "name": "version",
+        "value": [
+            "42"
+        ]
+    },
+    {
+        "id": "0-0:1.0.0",
+        "name": "timestamp",
+        "value": [
+            "160629104204S"
+        ]
+    },
+    {
+        "id": "0-0:96.1.1",
+        "name": "meterEquipmentId",
+        "value": [
+            "1234567890123456789012345678901234"
+        ]
+    },
+    {
+        "id": "1-0:1.8.1",
+        "name": "meterToT1",
+        "value": [
+            "004503.876*kWh"
+        ]
+    },
+    {
+        "id": "1-0:1.8.2",
+        "name": "meterToT2",
+        "value": [
+            "004165.692*kWh"
+        ]
+    },
+    {
+        "id": "1-0:2.8.1",
+        "name": "meterFromT1",
+        "value": [
+            "000000.000*kWh"
+        ]
+    },
+    {
+        "id": "1-0:2.8.2",
+        "name": "meterFromT2",
+        "value": [
+            "000000.000*kWh"
+        ]
+    },
+    {
+        "id": "0-0:96.14.0",
+        "name": "currentTariff",
+        "value": [
+            "0002"
+        ]
+    },
+    {
+        "id": "1-0:1.7.0",
+        "name": "actualPowerDelivered",
+        "value": [
+            "00.671*kW"
+        ]
+    },
+    {
+        "id": "1-0:2.7.0",
+        "name": "actualPowerReceived",
+        "value": [
+            "00.000*kW"
+        ]
+    },
+    {
+        "id": "0-0:96.7.21",
+        "name": "totalPowerFailures",
+        "value": [
+            "00006"
+        ]
+    },
+    {
+        "id": "0-0:96.7.9",
+        "name": "totalLongPowerFailures",
+        "value": [
+            "00004"
+        ]
+    },
+    {
+        "id": "1-0:99.97.0",
+        "name": "powerFailureLog",
+        "value": [
+            "1",
+            "0-0:96.7.19",
+            "000101000001W",
+            "2147483647*s"
+        ]
+    },
+    {
+        "id": "1-0:32.32.0",
+        "name": "voltageSagsL1",
+        "value": [
+            "00056"
+        ]
+    },
+    {
+        "id": "1-0:32.36.0",
+        "name": "voltageSwellsL1",
+        "value": [
+            "00000"
+        ]
+    },
+    {
+        "id": "0-0:96.13.1",
+        "name": "textMessageCode",
+        "value": [
+            ""
+        ]
+    },
+    {
+        "id": "0-0:96.13.0",
+        "name": "textMessageText",
+        "value": [
+            ""
+        ]
+    },
+    {
+        "id": "1-0:31.7.0",
+        "name": "instCurrentL1",
+        "value": [
+            "003*A"
+        ]
+    },
+    {
+        "id": "1-0:21.7.0",
+        "name": "instActPowerPlusL1",
+        "value": [
+            "00.668*kW"
+        ]
+    },
+    {
+        "id": "1-0:22.7.0",
+        "name": "instActPowerMinL1",
+        "value": [
+            "00.000*kW"
+        ]
+    },
+    {
+        "id": "0-1:24.1.0",
+        "name": "1deviceType",
+        "value": [
+            "003"
+        ]
+    },
+    {
+        "id": "0-1:96.1.0",
+        "name": "1equipmentId",
+        "value": [
+            "1234567890123456789012345678901234" 
+        ]
+    },
+    {
+        "id": "0-1:24.2.1",
+        "name": "1lastReading",
+        "value": [
+            "160629100000S",
+            "03558.359*m3"
+        ]
+    }
+]
