@@ -18,11 +18,6 @@ with serial.Serial('/dev/ttyUSB0', 115200, timeout=1) as ser:
 			for index, item in enumerate(data):
 				data[index] = str(item, encoding='ASCII').rstrip()
 			returnData = interpreter.readList(data)
-			print(returnData)
-			for item in returnData:
-				print(item)
 			if len(returnData) != 23:
 				raise ValueError
-			print("----------- JSON -----------")
 			print(json.dumps(returnData, sort_keys=True))
-			exit()
