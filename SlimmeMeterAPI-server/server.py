@@ -34,15 +34,15 @@ class serialListener(threading.Thread):
                         raise ValueError
                     print(json.dumps(returnData, sort_keys=True))
 
-class restServer(threading.Thread):
-    class HTTPServer(BaseHTTPRequestHandler):
-        def do_GET(self):
-            global jsonOutput
-            self.send_response(200)
-            self.send_header("Content-Type", "application/jsonOutput")
-            self.end_headers()
-            self.wfile.write(bytes(jsonOutput, "utf-8"))
+class HTTPServer(BaseHTTPRequestHandler):
+    def do_GET(self):
+        global jsonOutput
+        self.send_response(200)
+        self.send_header("Content-Type", "application/jsonOutput")
+        self.end_headers()
+        self.wfile.write(bytes(jsonOutput, "utf-8"))
 
+class restServer(threading.Thread):
     def __init__(self, name):
         threading.Thread.__init__(self, name)
         self.name = name
