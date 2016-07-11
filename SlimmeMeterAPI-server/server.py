@@ -21,12 +21,6 @@ class serialListener(threading.Thread):
             while True:
                 data = ser.readlines()
                 if (len(data) > 0):
-                    if not (data[0] == b'/KFM5KAIFA-METER\r\n'):
-                        # TODO Make this configurable.
-                        # TODO Doesn't seem to be always working.
-                        # Make sure tha data is valid.
-                        print("Invalid data!!!!1")
-                        continue
                     # Current data is in bytes. Convert to string.
                     for index, item in enumerate(data):
                         data[index] = str(item, encoding='ASCII').rstrip()
