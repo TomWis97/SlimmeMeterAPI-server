@@ -1,6 +1,7 @@
 import serial
 import interpreter
 import time
+import json
 
 with serial.Serial('/dev/ttyUSB0', 115200, timeout=1) as ser:
 	print(ser.name)
@@ -18,3 +19,10 @@ with serial.Serial('/dev/ttyUSB0', 115200, timeout=1) as ser:
 				data[index] = str(item, encoding='ASCII').rstrip()
 			returnData = interpreter.readList(data)
 			print(returnData)
+			for item in returnData:
+				print(item)
+			if len(returnData) != 23:
+				raise ValueError
+			print("----------- JSON -----------")
+			print(json.dumps(returnData, sort_keys=True))
+			exit()
