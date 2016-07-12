@@ -5,6 +5,9 @@ import time
 import json
 import configparser
 import threading
+import urllib.request
+import urllib.parse
+import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from time import sleep
 
@@ -14,6 +17,8 @@ config.read('config.ini')
 httpPort = int(config['server']['port'])
 serialDevice = config['server']['serialDevice']
 dataToExpect = int(config['server']['dataToExpect'])
+clientIP = config['server']['clientIP']
+clientPort = config['server']['clientPort']
 # Configuration reading done.
 
 # This variable will contain the latest data.
@@ -38,6 +43,17 @@ class serialListener(threading.Thread):
                         print("Invalid data!")
                         continue
                     jsonOutput = json.dumps(returnData, sort_keys=True)
+                    #print("URL:", 'http://' + clientIP + ':' + clientPort + '/')
+                    try:
+                        urllib.request.urlopen(
+                            urllib.request.Request(
+                                'http://' + clientIP + ':' + clientPort + '/',
+                                urllib.parse.urlencode(
+                                    {jsonOutput: ''}
+                                ).encode('UTF-8')))
+                    except:
+                        print("Error while sending HTTP POST:", sys.exc_info()[0])
+                    
 
 class webserverHandler(BaseHTTPRequestHandler):
     def do_GET(self):
