@@ -48,9 +48,7 @@ class serialListener(threading.Thread):
                         urllib.request.urlopen(
                             urllib.request.Request(
                                 'http://' + clientIP + ':' + clientPort + '/',
-                                urllib.parse.urlencode(
-                                    {jsonOutput: ''}
-                                ).encode('UTF-8')))
+                                jsonOutput.encode('UTF-8')))
                     except:
                         print("Error while sending HTTP POST:", sys.exc_info()[0])
                     
@@ -60,6 +58,7 @@ class webserverHandler(BaseHTTPRequestHandler):
         global jsonOutput
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
         self.end_headers()
         self.wfile.write(bytes(jsonOutput, "utf-8"))
 
